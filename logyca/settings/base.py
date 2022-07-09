@@ -1,25 +1,14 @@
-import json
 from django.core.exceptions import ImproperlyConfigured
+from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from pathlib import Path
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-with open("secret.json") as f:
-    secret = json.loads(f.read())
-
-
-def get_secret(secret_name, secrets=secret):
-    try:
-        return secrets[secret_name]
-    except:
-        msg = "la variable %s no existe" % secret_name
-        raise ImproperlyConfigured(msg)
-
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_secret("SECRET_KEY")
+SECRET_KEY = "django-insecure-x+on%y8sg!af82#zb9+5_&0rca&e)rtejvwr=ywmyjycq*ip20"
 
 
 # Application definition
@@ -108,13 +97,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Bogota'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+##STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
 STATIC_URL = 'static/'
 

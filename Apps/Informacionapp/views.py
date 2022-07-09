@@ -8,6 +8,11 @@ from .serializers import ClienteSerializer, ProductoSerializer, SucursalSerializ
 from .models import Cliente, Producto, Sucursal
 
 
+def index(request):
+    print('Request for index page received')
+    return render(request, 'Informacionapp/index.html')
+
+
 class ListClienteView(ListAPIView):
     serializer_class = ClienteSerializer
 

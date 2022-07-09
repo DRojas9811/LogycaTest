@@ -7,5 +7,6 @@ urlpatterns = [
     path('Cliente/', views.ListClienteView.as_view(), name="listClient"),
     path('Sucursal/', views.ListSucursalView.as_view(), name="listSucursal"),
     path('Producto/', views.ListProductoView.as_view(), name="listProducto"),
+    path('', views.index, name='index'),
         
 ]
