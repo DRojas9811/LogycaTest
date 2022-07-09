@@ -2,7 +2,7 @@ import json
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from unipath import Path
+from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'logyca.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR.child('templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
