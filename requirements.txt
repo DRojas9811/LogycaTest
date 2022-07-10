@@ -8,3 +8,5 @@ tzdata==2022.1
 Unipath==1.1
 whitenoise
 python-dotenv
+pyyaml
+uritemplate

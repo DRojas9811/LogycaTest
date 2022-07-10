@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework.schemas import get_schema_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("Apps.Inventarioapp.urls")),
     path('', include("Apps.Informacionapp.urls")),
-
+    path('', include("Apps.Inventarioapp.urls")),
+    path('api_schema/',get_schema_view(title='API Inventario Schema', description='Guide for Inventario REST API'),name='api_schema'),
 ]

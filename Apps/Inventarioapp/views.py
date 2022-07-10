@@ -1,6 +1,3 @@
-from datetime import date
-from types import new_class
-from django.shortcuts import render
 from .serializers import (AllRegistroSerializer, InventarioPagination,
                           InventarioSerializer,
                           RegistroSerializer,
@@ -35,6 +32,29 @@ class ListAllRegistroView(ListAPIView):
 
     def get_queryset(self):
         return Registro.objects.ListRegistro()
+
+class ListRegistrobyClienteView(ListAPIView):
+    serializer_class = AllRegistroSerializer
+    pagination_class = InventarioPagination
+
+    def get_queryset(self):
+        gln_cliente=self.kwargs["GLN_cliente"]
+        return Registro.objects.ListarRegistroByCliente(gln_cliente)
+
+class ListRegistrobySucursalView(ListAPIView):
+    serializer_class = AllRegistroSerializer
+    pagination_class = InventarioPagination
+
+    def get_queryset(self):
+        gln_Sucursal=self.kwargs["GLN_Sucursal"]
+        return Registro.objects.ListarRegistroBySucursal(gln_Sucursal)
+class ListRegistrobyProductoView(ListAPIView):
+    serializer_class = AllRegistroSerializer
+    pagination_class = InventarioPagination
+
+    def get_queryset(self):
+        gln_Producto=self.kwargs["GLN_Producto"]
+        return Registro.objects.ListarRegistroByProducto(gln_Producto)
 
 
 class CreateRegistroView(CreateAPIView):

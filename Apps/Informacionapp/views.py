@@ -10,9 +10,10 @@ from .serializers import ClienteSerializer, InfoPagination, ProductoSerializer, 
 from .models import Cliente, Producto, Sucursal
 
 
-class indezView(TemplateView):
+class indexView(TemplateView):
     template_name ="Informacionapp/index.html"
-
+class docsView(TemplateView):
+    template_name ="Informacionapp/docs.html"
 class ListClienteView(ListAPIView):
     serializer_class = ClienteSerializer
     pagination_class= InfoPagination
