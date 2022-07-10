@@ -11,10 +11,10 @@ class InventarioSerializer(serializers.Serializer):
     Fecha = serializers.DateField(source='fecha')
 
 
-class RegistroSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Registro
-        fields = "__all__"
+class RegistroSerializer(serializers.Serializer):
+    Inventario =serializers.CharField(source="inventarioFK")
+    Producto = serializers.CharField(source="productoFK")
+    Inventario_Final = serializers.IntegerField(source="cantidad")
 
 
 class AllRegistroSerializer(serializers.Serializer):

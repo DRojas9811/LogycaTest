@@ -72,7 +72,8 @@
 
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
-            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i>
+            </p>
             <br /> HTTP 200 OK
             <br />Allow: GET, HEAD, OPTIONS
             <br />Content-Type: application/json
@@ -106,7 +107,8 @@
 
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
-            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i>
+            </p>
             <br />HTTP 200 OK
             <br />Allow: GET, HEAD, OPTIONS
             <br />Content-Type: application/json
@@ -140,7 +142,8 @@
 
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
-            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i>
+            </p>
             <br />HTTP 200 OK
             <br />Allow: GET, HEAD, OPTIONS
             <br />Content-Type: application/json
@@ -175,21 +178,19 @@
 
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
-            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i>
+            </p>
             <br />HTTP 200 OK
             <br />Allow: GET, HEAD, OPTIONS
             <br />Content-Type: application/json
             <br />Vary: Accept
             <br />
             <br />[
-            <br />&nbsp;&nbsp;{
-            <br />&nbsp;&nbsp;"id": x,
-            <br />&nbsp;&nbsp;"created_at": "AAAA-MM-DDThh:mm:ss.msZ",
-            <br />&nbsp;&nbsp;"updated_at": "AAAA-MM-DDThh:mm:ss.msZ",
-            <br />&nbsp;&nbsp;"cantidad": x,
-            <br />&nbsp;&nbsp;"inventarioFK": x,
-            <br />&nbsp;&nbsp;"productoFK": x
-            <br />&nbsp;&nbsp;}
+             <br />&nbsp;{
+             <br />&nbsp;"Inventario": "String inventario info",
+             <br />&nbsp;"Producto": "String with producto info",
+             <br />&nbsp;"Inventario_Final": x
+             <br />&nbsp;}
             <br />]
           </div>
         </div>
@@ -214,7 +215,8 @@
 
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
-            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i>
+            </p>
             <br />HTTP 200 OK
             <br />Allow: GET, HEAD, OPTIONS
             <br />Content-Type: application/json
@@ -242,7 +244,8 @@
           Try this: 👉 https://HOST/api/AllRegistro/ 👈
         </a>
         <div class="fs-5 p-4 bd-highlight text-center">
-          Returns all inventories complete with all information related to itself. The API has a pagination of a maximum of 5 inventories complete.
+          Returns all inventories complete with all information related to itself. The API has a pagination of a maximum
+          of 5 inventories complete.
         </div>
 
         <div>
@@ -253,9 +256,10 @@
         </div>
 
         <div class="collapse" id="collapseExample">
-          
+
           <div class="card card-body">
-            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i>
+            </p>
             <br />HTTP 200 OK
             <br />Allow: GET, HEAD, OPTIONS
             <br />Content-Type: application/json
@@ -291,7 +295,8 @@
           Try this: 👉 https://HOST/api/CreateRegistro/ 👈
         </a>
         <div class="fs-5 p-4 bd-highlight text-center">
-          Create a new register in the database through a POST request. You can see an json example below.Creates a new register in the database through a POST request. You can see an Json structure example below.
+          Create a new register in the database through a POST request. You can see an json example below.Creates a new
+          register in the database through a POST request. You can see an Json structure example below.
         </div>
 
         <div>
@@ -304,22 +309,22 @@
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
             <p><i><strong>This Json is an example of how you have to put it in the body request.</strong></i></p>
-            <br/>{
-            <br/>&nbsp;&nbsp;"Inventario": {
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Cliente": {
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Cliente": $input [INT]
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;},
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Sucursal": {
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Sucrusal": $input [INT]
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;},
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Fecha": $input [Date: aaaa-mm-dd]
-            <br/>&nbsp;&nbsp;},
-            <br/>&nbsp;&nbsp;"Producto": {
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Gtin_Producto": $input [INT],
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"PrecioUnidad": $input [DOUBLE]
-            <br/>&nbsp;&nbsp;&nbsp;&nbsp;},
-            <br/>&nbsp;&nbsp;"Inventario_Final": $input [INT]
-            <br/>}
+            <br />{
+            <br />&nbsp;&nbsp;"Inventario": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Cliente": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Cliente": $input [INT]
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Sucursal": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Sucrusal": $input [INT]
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Fecha": $input [Date: aaaa-mm-dd]
+            <br />&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;"Producto": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Gtin_Producto": $input [INT],
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"PrecioUnidad": $input [DOUBLE]
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;"Inventario_Final": $input [INT]
+            <br />}
           </div>
         </div>
 
