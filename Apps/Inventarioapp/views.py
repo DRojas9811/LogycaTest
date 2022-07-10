@@ -1,11 +1,11 @@
 from datetime import date
 from types import new_class
 from django.shortcuts import render
-from .serializers import (AllRegistroSerializer,
+from .serializers import (AllRegistroSerializer, InventarioPagination,
                           InventarioSerializer,
                           RegistroSerializer,
                           AllRegistroSerializer,
-                          RegistroPagination)
+                          )
 from .models import Inventario, Registro
 from rest_framework.generics import ListAPIView, CreateAPIView
 from rest_framework.response import Response
@@ -16,6 +16,7 @@ from Apps.Inventarioapp import models
 
 class ListInventarioView(ListAPIView):
     serializer_class = InventarioSerializer
+    pagination_class = InventarioPagination
 
     def get_queryset(self):
         return Inventario.objects.ListInventario()
@@ -23,14 +24,14 @@ class ListInventarioView(ListAPIView):
 
 class ListRegistroView(ListAPIView):
     serializer_class = RegistroSerializer
-
+    pagination_class = InventarioPagination
     def get_queryset(self):
         return Registro.objects.ListRegistro()
 
 
 class ListAllRegistroView(ListAPIView):
     serializer_class = AllRegistroSerializer
-    pagination_class = RegistroPagination
+    pagination_class = InventarioPagination
 
     def get_queryset(self):
         return Registro.objects.ListRegistro()

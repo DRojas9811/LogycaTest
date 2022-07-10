@@ -3,18 +3,19 @@ from django.shortcuts import render
 from rest_framework.generics import (
     ListAPIView,
 )
-from .serializers import ClienteSerializer, ProductoSerializer, SucursalSerializer
+from django.templatetags.static import static
+from django.views.generic import TemplateView
+from .serializers import ClienteSerializer, InfoPagination, ProductoSerializer, SucursalSerializer
 # Create your views here.
 from .models import Cliente, Producto, Sucursal
 
 
-def index(request):
-    print('Request for index page received')
-    return render(request, 'Informacionapp/index.html')
-
+class indezView(TemplateView):
+    template_name ="Informacionapp/index.html"
 
 class ListClienteView(ListAPIView):
     serializer_class = ClienteSerializer
+    pagination_class= InfoPagination
 
     def get_queryset(self):
         return Cliente.objects.ListCliente()
@@ -22,6 +23,7 @@ class ListClienteView(ListAPIView):
 
 class ListSucursalView(ListAPIView):
     serializer_class = SucursalSerializer
+    pagination_class= InfoPagination
 
     def get_queryset(self):
         return Sucursal.objects.ListSucursal()
@@ -29,6 +31,7 @@ class ListSucursalView(ListAPIView):
 
 class ListProductoView(ListAPIView):
     serializer_class = ProductoSerializer
+    pagination_class= InfoPagination
 
     def get_queryset(self):
         return Producto.objects.ListProducto()

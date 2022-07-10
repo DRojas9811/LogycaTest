@@ -1,48 +1,335 @@
 {% extends "Informacionapp/base.html" %}
+{% load static %}
 {% block head %}
-    {{ block.super }}
-    <style>
-      body {
-          min-height: 75rem;
-          padding-top: 4.5rem;
-      }
-
-      .score {
-        display: block;
-        font-size: 16px;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .score-wrap {
-        display: inline-block;
-        position: relative;
-        height: 19px;
-      }
-      
-      .score .stars-active {
-        color: #EEBD01;
-        position: relative;
-        z-index: 10;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-      
-      .score .stars-inactive {
-        color: grey;
-        position: absolute;
-        top: 0;
-        left: 0;
-        -webkit-text-stroke: initial;
-        /* overflow: hidden; */
-      }
-  </style>
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'CSS/style.css' %}">
 {% endblock %}
 {% block content %}
-  <h1>Restaurants</h1>
-
-  <div class="d-flex justify-content-end">
-          <a href="" class="btn btn-success px-4 gap-3">Add new restaurant</a>
+&nbsp
+<h1>API Inventario Service</h1>
+<div class="row">
+  <div class="col-5">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active d-flex flex-row justify-content-around fs-4 text"
+        id="list-Cliente-list" data-bs-toggle="list" href="#list-Cliente" role="tab" aria-controls="list-Cliente">
+        <div class=" p-1 w-25 bg-success text-white rounded text-center ">GET</div>
+        <div class="  p-1 w-50  rounded text-center bg-white text-dark ">/api/Cliente/</div>
+      </a>
+      <a class="list-group-item list-group-item-action d-flex flex-row justify-content-around fs-4 text"
+        id="list-Sucursal-list" data-bs-toggle="list" href="#list-Sucursal" role="tab" aria-controls="list-Sucursal">
+        <div class=" p-1 w-25 bg-success text-white rounded text-center ">GET</div>
+        <div class="  p-1 w-50  rounded text-center bg-white text-dark ">/api/Sucursal/</div>
+      </a>
+      <a class="list-group-item list-group-item-action d-flex flex-row justify-content-around fs-4 text"
+        id="list-Producto-list" data-bs-toggle="list" href="#list-Producto" role="tab" aria-controls="list-Producto">
+        <div class=" p-1 w-25 bg-success text-white rounded text-center ">GET</div>
+        <div class="  p-1 w-50  rounded text-center bg-white text-dark ">/api/Producto/</div>
+      </a>
+      <a class="list-group-item list-group-item-action d-flex flex-row justify-content-around fs-4 text"
+        id="list-Registro-list" data-bs-toggle="list" href="#list-Registro" role="tab" aria-controls="list-Registro">
+        <div class=" p-1 w-25 bg-success text-white rounded text-center ">GET</div>
+        <div class="  p-1 w-50  rounded text-center bg-white text-dark ">/api/Registro/</div>
+      </a>
+      <a class="list-group-item list-group-item-action d-flex flex-row justify-content-around fs-4 text"
+        id="list-Inventario-list" data-bs-toggle="list" href="#list-Inventario" role="tab"
+        aria-controls="list-Inventario">
+        <div class=" p-1 w-25 bg-success text-white rounded text-center ">GET</div>
+        <div class="  p-1 w-50  rounded text-center bg-white text-dark ">/api/Inventario/</div>
+      </a>
+      <a class="list-group-item list-group-item-action d-flex flex-row justify-content-around fs-4 text"
+        id="list-AllRegistro-list" data-bs-toggle="list" href="#list-AllRegistro" role="tab"
+        aria-controls="list-AllRegistro">
+        <div class=" p-1 w-25 bg-success text-white rounded text-center ">GET</div>
+        <div class="  p-1 w-50  rounded text-center bg-white text-dark ">/api/AllRegistro/</div>
+      </a>
+      <a class="list-group-item list-group-item-action d-flex flex-row justify-content-around fs-4 text"
+        id="list-CreateRegistro-list" data-bs-toggle="list" href="#list-CreateRegistro" role="tab"
+        aria-controls="list-CreateRegistro">
+        <div class=" p-1 w-25 bg-warning text-white rounded text-center ">POST</div>
+        <div class="  p-1 w-50  rounded text-center bg-white text-dark ">/api/CreateRegistro/</div>
+      </a>
+    </div>
   </div>
+  <div class="col-7">
+    <div class="tab-content" id="nav-tabContent">
+
+
+      <div class="tab-pane fade show active " id="list-Cliente" role="tabpanel" aria-labelledby="list-Cliente-list">
+        <a href="{% url 'Informacion_app:listCliente' %}"
+          class="btn btn-success position-relative font-monospace fs-6 p-2 bd-highlight w-100 ">
+          Try this: 👉 https://HOST/api/Cliente/ 👈
+        </a>
+        <div class="fs-5 p-4 bd-highlight text-center">
+          Returns all customers. The API has a pagination of a maximum of 5 customers.
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide result example 👇
+          </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <br /> HTTP 200 OK
+            <br />Allow: GET, HEAD, OPTIONS
+            <br />Content-Type: application/json
+            <br />Vary: Accept
+            <br />
+            <br />[
+            <br /> &nbsp;&nbsp;{
+            <br /> &nbsp;&nbsp;"GLN_Cliente": xxxxxxxxxxxxx
+            <br /> &nbsp;&nbsp;}
+            <br />]
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="list-Sucursal" role="tabpanel" aria-labelledby="list-Sucursal-list">
+        <a href="{% url 'Informacion_app:listSucursal' %}"
+          class="btn btn-success position-relative font-monospace fs-6 p-2 bd-highlight w-100 ">
+          Try this: 👉 https://HOST/api/Sucursal/ 👈
+        </a>
+        <div class="fs-5 p-4 bd-highlight text-center">
+          Returns all branch offices. The API has a pagination of a maximum of 5 branch offices.
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide result example 👇
+          </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <br />HTTP 200 OK
+            <br />Allow: GET, HEAD, OPTIONS
+            <br />Content-Type: application/json
+            <br />Vary: Accept
+            <br />
+            <br />[
+            <br />&nbsp;&nbsp;{
+            <br />&nbsp;&nbsp;"GLN_Sucrusal": xxxxxxxxxxxxx
+            <br />&nbsp;&nbsp;}
+            <br />]
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="list-Producto" role="tabpanel" aria-labelledby="list-Producto-list">
+        <a href="{% url 'Informacion_app:listProducto' %}"
+          class="btn btn-success position-relative font-monospace fs-6 p-2 bd-highlight w-100 ">
+          Try this: 👉 https://HOST/api/Producto/ 👈
+        </a>
+        <div class="fs-5 p-4 bd-highlight text-center">
+          Returns all products. The API has a pagination of a maximum of 5 products.
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide result example 👇
+          </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <br />HTTP 200 OK
+            <br />Allow: GET, HEAD, OPTIONS
+            <br />Content-Type: application/json
+            <br />Vary: Accept
+            <br />
+            <br />[
+            <br />&nbsp;&nbsp;{
+            <br />&nbsp;&nbsp;"Gtin_Producto": xxxxxxxxxxxxx,
+            <br />&nbsp;&nbsp;"PrecioUnidad": "xxxxxx.xx"
+            <br />&nbsp;&nbsp;}
+            <br />]
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="list-Registro" role="tabpanel" aria-labelledby="list-Registro-list">
+        <a href="{% url 'Inventario_app:listRegistro' %}"
+          class="btn btn-success position-relative font-monospace fs-6 p-2 bd-highlight w-100 ">
+          Try this: 👉 https://HOST/api/Registro/ 👈
+        </a>
+        <div class="fs-5 p-4 bd-highlight text-center">
+          Returns all inventory registers. The API has a pagination of a maximum of 5 registers.
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide result example 👇
+          </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <br />HTTP 200 OK
+            <br />Allow: GET, HEAD, OPTIONS
+            <br />Content-Type: application/json
+            <br />Vary: Accept
+            <br />
+            <br />[
+            <br />&nbsp;&nbsp;{
+            <br />&nbsp;&nbsp;"id": x,
+            <br />&nbsp;&nbsp;"created_at": "AAAA-MM-DDThh:mm:ss.msZ",
+            <br />&nbsp;&nbsp;"updated_at": "AAAA-MM-DDThh:mm:ss.msZ",
+            <br />&nbsp;&nbsp;"cantidad": x,
+            <br />&nbsp;&nbsp;"inventarioFK": x,
+            <br />&nbsp;&nbsp;"productoFK": x
+            <br />&nbsp;&nbsp;}
+            <br />]
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="list-Inventario" role="tabpanel" aria-labelledby="list-Inventario-list">
+        <a href="{% url 'Inventario_app:listInventario' %}"
+          class="btn btn-success position-relative font-monospace fs-6 p-2 bd-highlight w-100 ">
+          Try this: 👉 https://HOST/api/Inventario/ 👈
+        </a>
+        <div class="fs-5 p-4 bd-highlight text-center">
+          Returns all inventories. The API has a pagination of a maximum of 5 inventories.
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide result example 👇
+          </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <br />HTTP 200 OK
+            <br />Allow: GET, HEAD, OPTIONS
+            <br />Content-Type: application/json
+            <br />Vary: Accept
+            <br />
+            <br />[
+            <br />&nbsp;&nbsp;{
+            <br />&nbsp;&nbsp;"Cliente": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Cliente": xxxxxxxxxxxxx
+            <br />&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;"Sucursal": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Sucrusal": xxxxxxxxxxxxx
+            <br />&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;"Fecha": "aaaa-mm-dd"
+            <br />&nbsp;&nbsp;}
+            <br />]
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="list-AllRegistro" role="tabpanel" aria-labelledby="list-AllRegistro-list">
+        <a href="{% url 'Inventario_app:listCompleteRegistro' %}"
+          class="btn btn-success position-relative font-monospace fs-6 p-2 bd-highlight w-100 ">
+          Try this: 👉 https://HOST/api/AllRegistro/ 👈
+        </a>
+        <div class="fs-5 p-4 bd-highlight text-center">
+          Returns all inventories complete with all information related to itself. The API has a pagination of a maximum of 5 inventories complete.
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide result example 👇
+          </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          
+          <div class="card card-body">
+            <p><i><strong>This Json is just an example of how you would get a response from the request.</strong></i></p>
+            <br />HTTP 200 OK
+            <br />Allow: GET, HEAD, OPTIONS
+            <br />Content-Type: application/json
+            <br />Vary: Accept
+            <br />
+            <br />[
+            <br />&nbsp;&nbsp;{
+            <br />&nbsp;&nbsp;"Inventario": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Cliente": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Cliente": xxxxxxxxxxxxx
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Sucursal": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Sucrusal": xxxxxxxxxxxxx
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Fecha": "aaaa-mm-dd"
+            <br />&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;"Producto": {
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"Gtin_Producto": xxxxxxxxxxxxx,
+            <br />&nbsp;&nbsp;&nbsp;&nbsp;"PrecioUnidad": "xxxxxx.xx"
+            <br />&nbsp;&nbsp;},
+            <br />&nbsp;&nbsp;"Inventario_Final": x
+            <br />&nbsp;&nbsp;}
+            <br />]
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="tab-pane fade" id="list-CreateRegistro" role="tabpanel" aria-labelledby="list-CreateRegistro-list">
+        <a href="{% url 'Inventario_app:listCreateRegistro' %}"
+          class="btn btn-success position-relative font-monospace fs-6 p-2 bd-highlight w-100 ">
+          Try this: 👉 https://HOST/api/CreateRegistro/ 👈
+        </a>
+        <div class="fs-5 p-4 bd-highlight text-center">
+          Create a new register in the database through a POST request. You can see an json example below.Creates a new register in the database through a POST request. You can see an Json structure example below.
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Show/Hide json template 👇
+          </button>
+        </div>
+
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <p><i><strong>This Json is an example of how you have to put it in the body request.</strong></i></p>
+            <br/>{
+            <br/>&nbsp;&nbsp;"Inventario": {
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Cliente": {
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Cliente": $input [INT]
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Sucursal": {
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GLN_Sucrusal": $input [INT]
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Fecha": $input [Date: aaaa-mm-dd]
+            <br/>&nbsp;&nbsp;},
+            <br/>&nbsp;&nbsp;"Producto": {
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"Gtin_Producto": $input [INT],
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;"PrecioUnidad": $input [DOUBLE]
+            <br/>&nbsp;&nbsp;&nbsp;&nbsp;},
+            <br/>&nbsp;&nbsp;"Inventario_Final": $input [INT]
+            <br/>}
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+
 {% endblock %}

@@ -24,6 +24,6 @@ class AllRegistroSerializer(serializers.Serializer):
     Inventario_Final = serializers.IntegerField(source="cantidad")
 
 
-class RegistroPagination(pagination.PageNumberPagination):
+class InventarioPagination(pagination.PageNumberPagination):
     page_size = 5
     max_page_size = 100
