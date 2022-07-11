@@ -1,8 +1,8 @@
 # Introduction
 
-LogycaTest is a Rest API Service built to creating or updating an register with information related to inventories, clients, branch offices and products. Service was deployed in Azure app service and it has a connection with an Azure Database for PostgreSQL. Right now you can find the service in [Logyca](https://logycatestapi.azurewebsites.net/). 
+LogycaTest is a Rest API Service built to creating or updating a register with information related to inventories, clients, branch offices and products. Service was deployed in Azure app service, and it has a connection with an Azure Database for PostgreSQL. Right now, you can find the service in [Logyca](https://logycatestapi.azurewebsites.net/). 
 
-Also you can find how to use the [Logyca](https://logycatestapi.azurewebsites.net/) Api in the main of the service. I hope that you enjoy these docs and if you have any question you can send an email to Diegorojascifuentes@gmail.com, you will get an answer 
+Also, you can find how to use the [Logyca](https://logycatestapi.azurewebsites.net/) API in the main of the service. I hope that you enjoy these docs and if you have any question, you can send an email to Diegorojascifuentes@gmail.com, you will get an answer 
 as soon as possible.
 
 ## Authorization
