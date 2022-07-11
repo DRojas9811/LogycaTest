@@ -1,5 +1,3 @@
-from unicodedata import name
-from Apps.Informacionapp.models import Producto
 from .models import Inventario, Registro
 from rest_framework import serializers, pagination
 from ..Informacionapp.serializers import ProductoSerializer, SucursalSerializer, ClienteSerializer
